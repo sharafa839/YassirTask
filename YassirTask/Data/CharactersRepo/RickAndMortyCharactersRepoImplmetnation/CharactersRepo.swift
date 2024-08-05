@@ -7,6 +7,6 @@
 
 import Foundation
 
-internal final class CharactersRepo: MoyaServiceHelper<CharactersApi>, CharacterRepoProtocol {
+internal final class CharactersRepo: MoyaServiceHelper<CharactersApi>, CharactersRepoProtocol {
    
 }

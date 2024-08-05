@@ -8,7 +8,7 @@
 import Foundation
 
 
-extension CharacterRepoProtocol  {
+extension CharactersRepoProtocol  {
     
     private var repo: CharactersRepo {
         return CharactersRepo()

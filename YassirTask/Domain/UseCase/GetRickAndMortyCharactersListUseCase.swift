@@ -12,9 +12,9 @@ protocol GetRickAndMortyCharactersListUseCaseProtocol {
 }
 
 class GetRickAndMortyCharactersListUseCase: GetRickAndMortyCharactersListUseCaseProtocol {
-    let repo: CharacterRepoProtocol
+    let repo: CharactersRepoProtocol
     
-    init(repo: CharacterRepoProtocol = CharactersRepo()) {
+    init(repo: CharactersRepoProtocol = CharactersRepo()) {
         self.repo = repo
     }
     

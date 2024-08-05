@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CharacterRepoProtocol {
+protocol CharactersRepoProtocol {
     
     func getCharacters(page: Int, status: Status?, completion : @escaping(Result<CharactersResponse, Error>)->Void)
 }
