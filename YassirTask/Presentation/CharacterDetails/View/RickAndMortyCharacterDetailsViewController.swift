@@ -34,6 +34,10 @@ internal final class RickAndMortyCharacterDetailsViewController: UIViewControlle
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        print("deinit\(Self.self)")
+    }
+    
     //MARK: - LifeCycle
 
     override func viewWillAppear(_ animated: Bool) {

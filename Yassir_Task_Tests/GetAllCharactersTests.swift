@@ -43,6 +43,6 @@ final class GetAllCharacters: XCTestCase {
         waitForExpectations(timeout: 5, handler: nil)
         XCTAssert((rickAndMortyCharacters?.info?.pages == 42), "")
         XCTAssertEqual(rickAndMortyCharacters?.results?.first?.name , "Rick Sanchez")
-        XCTAssertEqual(rickAndMortyCharacters?.results?.first?.gender, .female)
+        XCTAssertEqual(rickAndMortyCharacters?.results?.first?.gender, .male)
     }
 }

@@ -15,7 +15,7 @@
 		04F32E5A2C60404700C3E743 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F32E592C60404700C3E743 /* AppDelegate.swift */; };
 		04F32E632C60404900C3E743 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F32E622C60404900C3E743 /* Assets.xcassets */; };
 		04F32E662C60404900C3E743 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F32E642C60404900C3E743 /* LaunchScreen.storyboard */; };
-		04F32E712C60404900C3E743 /* GetAllCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F32E702C60404900C3E743 /* GetAllCharacters.swift */; };
+		04F32E712C60404900C3E743 /* GetAllCharactersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F32E702C60404900C3E743 /* GetAllCharactersTests.swift */; };
 		04F32E7B2C60404900C3E743 /* YassirTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F32E7A2C60404900C3E743 /* YassirTaskUITests.swift */; };
 		04F32E7D2C60404900C3E743 /* YassirTaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F32E7C2C60404900C3E743 /* YassirTaskUITestsLaunchTests.swift */; };
 		04F32E9E2C60431C00C3E743 /* CharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F32E912C60431C00C3E743 /* CharactersResponse.swift */; };
@@ -76,7 +76,7 @@
 		04F32E652C60404900C3E743 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04F32E672C60404900C3E743 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04F32E6C2C60404900C3E743 /* YassirTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YassirTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		04F32E702C60404900C3E743 /* GetAllCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllCharacters.swift; sourceTree = "<group>"; };
+		04F32E702C60404900C3E743 /* GetAllCharactersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllCharactersTests.swift; sourceTree = "<group>"; };
 		04F32E762C60404900C3E743 /* YassirTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YassirTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F32E7A2C60404900C3E743 /* YassirTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YassirTaskUITests.swift; sourceTree = "<group>"; };
 		04F32E7C2C60404900C3E743 /* YassirTaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YassirTaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 		04F32E6F2C60404900C3E743 /* Yassir_Task_Tests */ = {
 			isa = PBXGroup;
 			children = (
-				04F32E702C60404900C3E743 /* GetAllCharacters.swift */,
+				04F32E702C60404900C3E743 /* GetAllCharactersTests.swift */,
 				04136F592C6190B900B25D93 /* stubGetAllCharacters.json */,
 			);
 			path = Yassir_Task_Tests;
@@ -625,7 +625,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04F32E712C60404900C3E743 /* GetAllCharacters.swift in Sources */,
+				04F32E712C60404900C3E743 /* GetAllCharactersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
