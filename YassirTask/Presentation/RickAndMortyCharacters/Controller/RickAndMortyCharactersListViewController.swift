@@ -9,15 +9,16 @@ import UIKit
 import SwiftUI
 import Combine
 
-class RickAndMortyCharactersListViewController: UIViewController {
+internal final class RickAndMortyCharactersListViewController: UIViewController {
 
     //MARK: - IBOutlets
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet weak private var collectionView: UICollectionView!
+    
     //MARK: - Properties
     
-    let viewModel: RickAndMortyCharactersListViewModel
-    var cancellable = Set<AnyCancellable>()
+    private let viewModel: RickAndMortyCharactersListViewModel
+    private var cancellable = Set<AnyCancellable>()
 
     //MARK: - Init
     init(viewModel: RickAndMortyCharactersListViewModel) {
@@ -42,6 +43,10 @@ class RickAndMortyCharactersListViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CharacterItemView")
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    private func setupCollectionView() {
+        collectionView.register(UICollectionView.self, forCellWithReuseIdentifier: "")
     }
     
     private func setupViewModelObservers() {

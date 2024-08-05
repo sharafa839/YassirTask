@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RickAndMortyCharacterDetailsViewController: UIViewController {
+internal final class RickAndMortyCharacterDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
