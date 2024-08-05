@@ -17,7 +17,8 @@ class RickAndMortyCharactersListViewModel {
     let characterProperties: CurrentValueSubject<[CharactersProperties], Never> = .init([])
     let currentPage: CurrentValueSubject<Int, Never> = .init(1)
     let status: CurrentValueSubject<Status?, Never> = .init(nil)
-    var allCharactersProperties: [CharactersProperties] = []
+    private (set) var allCharactersProperties: [CharactersProperties] = []
+    
     init(useCase: GetRickAndMortyCharactersListUseCaseProtocol = GetRickAndMortyCharactersListUseCase()) {
         self.useCase = useCase
     }

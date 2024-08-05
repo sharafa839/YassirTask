@@ -70,7 +70,6 @@ internal final class RickAndMortyCharactersListViewController: UIViewController 
         .store(in: &cancellable)
         viewModel.status.sink { [weak self] _ in
             guard let self else { return }
-            viewModel.allCharactersProperties = []
             viewModel.currentPage.send(1)
         }
         .store(in: &cancellable)
