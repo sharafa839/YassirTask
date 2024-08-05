@@ -8,21 +8,28 @@
 import SwiftUI
 
 struct FilterItemView: View {
-    private let title: String
+    private let filter: Filtration
     var body: some View {
-       Text(title)
+        Text(filter.filter.rawValue)
             .padding()
             .background(content: {
-                RoundedRectangle(cornerRadius: 30)
-                    .stroke(.gray, lineWidth: 2)
+                if filter.selected {
+                    Color.red
+                        .cornerRadius(30)
+                } else {
+                    RoundedRectangle(cornerRadius: 30)
+                        .stroke(.gray, lineWidth: 2)
+                }
+                
             })
     }
     
-    init(title: String) {
-        self.title = title
+    
+    init(filter: Filtration) {
+        self.filter = filter
     }
 }
 
 #Preview {
-    FilterItemView(title: "")
+    FilterItemView(filter: .init(filter: .alive, selected: false))
 }

@@ -45,7 +45,7 @@ extension CharactersApi: TargetType, BaseAPIHeadersProtocol {
     var sampleData: Data {
         switch self {
         case .getRickAndMortyCharacters:
-            return (try? JSONLoader.loadData(file: "")) ?? Data()
+            return (try? JSONLoader.loadData(file: "stubGetAllCharacters")) ?? Data()
         }
     }
     

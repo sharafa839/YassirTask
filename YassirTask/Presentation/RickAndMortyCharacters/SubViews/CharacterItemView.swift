@@ -17,6 +17,8 @@ struct CharacterItemView: View {
                 KFImage(URL(string: character.image)!)
                     .resizable()
                     .frame(width: 120, height: 120)
+                    .cornerRadius(10)
+                    .shadow(radius: 10)
                 
                 VStack(alignment: .leading) {
                     Text(character.name)

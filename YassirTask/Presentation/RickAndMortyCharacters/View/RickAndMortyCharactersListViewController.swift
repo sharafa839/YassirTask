@@ -68,9 +68,11 @@ internal final class RickAndMortyCharactersListViewController: UIViewController 
             viewModel.getRickAndMortyCharacters(currentPage: page, status: viewModel.status.value)
         }
         .store(in: &cancellable)
-        viewModel.status.sink { [weak self] _ in
+        viewModel.status.sink { [weak self] value in
             guard let self else { return }
-            viewModel.currentPage.send(1)
+            guard let value else { return }
+            viewModel.resetData()
+            collectionView.reloadData()
         }
         .store(in: &cancellable)
     }
@@ -82,7 +84,7 @@ internal final class RickAndMortyCharactersListViewController: UIViewController 
     }
     
    private func scrollToEnd(indexPath: IndexPath) {
-        if indexPath.row == viewModel.characterProperties.value.count - 1 { // last cell
+       if indexPath.row == viewModel.characterProperties.value.count - 1 && viewModel.currentPage.value < viewModel.totalPages {
             viewModel.currentPage.send(viewModel.currentPage.value + 1)
         }
     }
@@ -115,21 +117,21 @@ extension RickAndMortyCharactersListViewController: UITableViewDelegate, UITable
 
 extension RickAndMortyCharactersListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        Status.allCases.count
+        viewModel.filtrationCases.value.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let filter = Status.allCases[indexPath.row]
+        let filter = viewModel.filtrationCases.value[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilterItemView", for: indexPath)
         cell.contentConfiguration = UIHostingConfiguration(content: {
-            FilterItemView(title: filter.rawValue)
+            FilterItemView(filter: filter)
         })
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let status = Status.allCases[indexPath.row]
-        viewModel.status.send(status)
+        let filtar = viewModel.filtrationCases.value[indexPath.row]
+        viewModel.selectFilter(filter: filtar)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

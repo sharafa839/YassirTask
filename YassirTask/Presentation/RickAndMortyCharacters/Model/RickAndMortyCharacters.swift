@@ -8,7 +8,7 @@
 import Foundation
 
 struct RickAndMortyCharacters {
-    let nextPage: Int
+    let totalPages: Int
     let charactersProperties: [CharactersProperties]
 }
 
@@ -16,7 +16,7 @@ extension RickAndMortyCharacters {
     init(model: CharactersResponse) {
         let charactersProperties = model.results?.compactMap({CharactersProperties(model: $0)}) ?? []
         self.init(
-            nextPage: Int(model.info?.next ?? "0") ?? 0,
+            totalPages: model.info?.pages ?? 0,
             charactersProperties: charactersProperties
         )
     }
