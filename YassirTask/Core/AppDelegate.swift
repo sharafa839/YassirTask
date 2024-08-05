@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Override point for customization after application launch.
             let rickAndMortyCharactersListViewController = RickAndMortyCharactersListViewController(viewModel: RickAndMortyCharactersListViewModel())
             let uiNavigationController = UINavigationController(rootViewController: rickAndMortyCharactersListViewController)
-            coordinator.setRoot(rickAndMortyCharactersListViewController)
+            coordinator.setRoot(uiNavigationController)
             return true
         }
 }

@@ -45,7 +45,7 @@ struct Location: Codable {
     let url: String?
 }
 
-enum Status: String, Codable {
+enum Status: String, Codable, CaseIterable {
     case alive = "Alive"
     case dead = "Dead"
     case unknown = "unknown"

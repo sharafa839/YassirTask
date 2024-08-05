@@ -7,6 +7,7 @@ target 'YassirTask' do
   
   pod 'Moya'
   pod 'MBProgressHUD'
+  pod 'Kingfisher', '~> 7.0'
   post_install do |installer|
     installer.generated_projects.each do |project|
       project.targets.each do |target|

@@ -27,6 +27,7 @@ struct CharactersProperties {
     let id: Int
     let name: String
     let species: String
+    let location: String
     let status: Status
     let image: String
     let gender: Gender
@@ -39,6 +40,7 @@ extension CharactersProperties {
             id: id,
             name: model.name ?? "", 
             species: model.species ?? "",
+            location: model.location?.name ?? "",
             status: model.status ?? .unknown,
             image: model.image ?? "",
             gender: model.gender ?? .unknown
@@ -50,6 +52,7 @@ extension CharactersProperties {
             id: 1,
             name: "Aqua Morty",
             species: "Humanoid",
+            location: "cairo",
             status: .alive,
             image: "https://rickandmortyapi.com/api/character/avatar/21.jpeg",
             gender: .female
