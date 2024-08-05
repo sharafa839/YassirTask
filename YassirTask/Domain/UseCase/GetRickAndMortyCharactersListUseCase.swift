@@ -8,7 +8,7 @@
 import Foundation
 
 protocol GetRickAndMortyCharactersListUseCaseProtocol {
-    func getCharacters(page: Int, completion: @escaping(Result<RickAndMortyCharacters, Error>)-> Void)
+    func getCharacters(page: Int, status: Status?, completion: @escaping(Result<RickAndMortyCharacters, Error>)-> Void)
 }
 
 class GetRickAndMortyCharactersListUseCase: GetRickAndMortyCharactersListUseCaseProtocol {
@@ -18,8 +18,8 @@ class GetRickAndMortyCharactersListUseCase: GetRickAndMortyCharactersListUseCase
         self.repo = repo
     }
     
-    func getCharacters(page: Int, completion: @escaping(Result<RickAndMortyCharacters, Error>)-> Void) {
-        repo.getCharacters(page: page) {value in
+    func getCharacters(page: Int, status: Status? = nil, completion: @escaping(Result<RickAndMortyCharacters, Error>)-> Void) {
+        repo.getCharacters(page: page, status: status) {value in
             switch value {
             case .success(let response):
                 let rickAndMortyCharactersList = RickAndMortyCharacters(model: response)

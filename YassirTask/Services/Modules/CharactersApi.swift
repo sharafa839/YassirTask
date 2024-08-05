@@ -10,7 +10,7 @@ import Moya
 
 enum CharactersApi {
     
-    case getRickAndMortyCharacters(page: Int)
+    case getRickAndMortyCharacters(page: Int, status: Status?)
 }
 
 extension CharactersApi: TargetType, BaseAPIHeadersProtocol {
@@ -32,8 +32,12 @@ extension CharactersApi: TargetType, BaseAPIHeadersProtocol {
     
     var task: Task {
         switch self {
-        case .getRickAndMortyCharacters(let page):
-            return .requestParameters(parameters: ["page": "\(page)"], encoding: URLEncoding.default)
+        case .getRickAndMortyCharacters(let page, let status):
+            if let status = status {
+                return .requestParameters(parameters: ["page": "\(page)", "status": status.rawValue], encoding: URLEncoding.default)
+            } else {
+                return .requestParameters(parameters: ["page": "\(page)"], encoding: URLEncoding.default)
+            }
             
         }
     }

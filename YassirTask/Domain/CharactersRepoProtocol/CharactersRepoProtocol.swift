@@ -9,5 +9,5 @@ import Foundation
 
 protocol CharacterRepoProtocol {
     
-    func getCharacters(page: Int, completion : @escaping(Result<CharactersResponse, Error>)->Void)
+    func getCharacters(page: Int, status: Status?, completion : @escaping(Result<CharactersResponse, Error>)->Void)
 }

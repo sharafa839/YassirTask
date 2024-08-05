@@ -64,7 +64,14 @@ internal final class RickAndMortyCharactersListViewController: UIViewController 
         }
         .store(in: &cancellable)
         viewModel.currentPage.sink { [weak self] page in
-            self?.viewModel.getRickAndMortyCharacters(currentPage: page)
+            guard let self else { return }
+            viewModel.getRickAndMortyCharacters(currentPage: page, status: viewModel.status.value)
+        }
+        .store(in: &cancellable)
+        viewModel.status.sink { [weak self] _ in
+            guard let self else { return }
+            viewModel.allCharactersProperties = []
+            viewModel.currentPage.send(1)
         }
         .store(in: &cancellable)
     }
@@ -123,7 +130,7 @@ extension RickAndMortyCharactersListViewController: UICollectionViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let status = Status.allCases[indexPath.row]
-        viewModel.getRickAndMortyCharactersBy(status)
+        viewModel.status.send(status)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

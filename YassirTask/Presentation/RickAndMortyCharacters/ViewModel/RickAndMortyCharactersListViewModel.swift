@@ -16,15 +16,19 @@ class RickAndMortyCharactersListViewModel {
     let RickAndMortyCharacters: PassthroughSubject<RickAndMortyCharacters, Never> = .init()
     let characterProperties: CurrentValueSubject<[CharactersProperties], Never> = .init([])
     let currentPage: CurrentValueSubject<Int, Never> = .init(1)
+    let status: CurrentValueSubject<Status?, Never> = .init(nil)
     var allCharactersProperties: [CharactersProperties] = []
     init(useCase: GetRickAndMortyCharactersListUseCaseProtocol = GetRickAndMortyCharactersListUseCase()) {
         self.useCase = useCase
-        getRickAndMortyCharacters(currentPage: currentPage.value)
     }
     
-    func getRickAndMortyCharacters(currentPage: Int) {
+    func getRickAndMortyCharacters(currentPage: Int, status: Status? = nil) {
+        guard self.status.value == status else {
+            resetData()
+            return
+        }
         onLoading.send(true)
-        useCase.getCharacters(page: currentPage) { [weak self] value in
+        useCase.getCharacters(page: currentPage, status: status) { [weak self] value in
             guard let self else { return }
             onLoading.send(false)
             switch value {
@@ -38,7 +42,9 @@ class RickAndMortyCharactersListViewModel {
         }
     }
     
-    func getRickAndMortyCharactersBy(_ status: Status) {
-        characterProperties.send(allCharactersProperties.filter({$0.status == status}))
+    private func resetData() {
+        currentPage.send(1)
+        allCharactersProperties = []
+        characterProperties.send([])
     }
 }

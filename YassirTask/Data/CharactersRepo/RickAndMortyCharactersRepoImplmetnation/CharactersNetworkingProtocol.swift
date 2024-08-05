@@ -14,7 +14,7 @@ extension CharacterRepoProtocol  {
         return CharactersRepo()
     }
     
-    func getCharacters(page: Int, completion : @escaping(Result<CharactersResponse, Error>)->Void) {
-        repo.defaultRequest(target: .getRickAndMortyCharacters(page: page), completion: completion)
+    func getCharacters(page: Int, status: Status?, completion : @escaping(Result<CharactersResponse, Error>)->Void) {
+        repo.defaultRequest(target: .getRickAndMortyCharacters(page: page, status: status), completion: completion)
     }
 }
