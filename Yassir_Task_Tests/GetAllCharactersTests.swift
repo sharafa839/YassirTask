@@ -10,15 +10,15 @@ import XCTest
 
 final class GetAllCharacters: XCTestCase {
 
-    var characterUseCase: GetRickAndMortyCharactersListUseCaseProtocol!
+    var characterUseCase: GetCharactersListUseCaseProtocol!
     var repo: CharactersRepoProtocol!
-    var sut: RickAndMortyCharactersListViewModel!
+    var sut: CharactersListViewModel!
     var rickAndMortyCharacters: CharactersResponse?
 
     override func setUpWithError() throws {
         repo = CharactersRepo(type: .test)
-        characterUseCase = GetRickAndMortyCharactersListUseCase(repo: repo)
-        sut = RickAndMortyCharactersListViewModel(useCase: characterUseCase)
+        characterUseCase = GetCharactersListUseCase(repo: repo)
+        sut = CharactersListViewModel(useCase: characterUseCase)
         rickAndMortyCharacters = nil
     }
 

@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
             // Override point for customization after application launch.
-            let rickAndMortyCharactersListViewController = RickAndMortyCharactersListViewController(viewModel: RickAndMortyCharactersListViewModel())
+            let rickAndMortyCharactersListViewController = CharactersListViewController(viewModel: CharactersListViewModel())
             let uiNavigationController = UINavigationController(rootViewController: rickAndMortyCharactersListViewController)
             coordinator.setRoot(uiNavigationController)
             return true

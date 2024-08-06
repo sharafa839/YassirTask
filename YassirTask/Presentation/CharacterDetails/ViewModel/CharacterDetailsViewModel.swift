@@ -1,5 +1,5 @@
 //
-//  RickAndMortyCharacterDetailsViewModel.swift
+//  CharacterDetailsViewModel.swift
 //  YassirTask
 //
 //  Created by Sharaf on 8/5/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RickAndMortyCharacterDetailsViewModel {
+internal final class CharacterDetailsViewModel {
     
     //MARK: - Properties
     let character: CharactersProperties

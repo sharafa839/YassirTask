@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 import Combine
 
-internal final class RickAndMortyCharactersListViewController: UIViewController {
+internal final class CharactersListViewController: UIViewController {
     
     //MARK: - IBOutlets
     @IBOutlet weak private var tableView: UITableView!
@@ -17,11 +17,11 @@ internal final class RickAndMortyCharactersListViewController: UIViewController 
     
     //MARK: - Properties
     
-    private let viewModel: RickAndMortyCharactersListViewModel
+    private let viewModel: CharactersListViewModel
     private var cancellable = Set<AnyCancellable>()
     
     //MARK: - Init
-    init(viewModel: RickAndMortyCharactersListViewModel) {
+    init(viewModel: CharactersListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -90,7 +90,7 @@ internal final class RickAndMortyCharactersListViewController: UIViewController 
     }
 }
 
-extension RickAndMortyCharactersListViewController: UITableViewDelegate, UITableViewDataSource {
+extension CharactersListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.characterProperties.value.count
@@ -109,13 +109,13 @@ extension RickAndMortyCharactersListViewController: UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let character = viewModel.characterProperties.value[indexPath.row]
-        let rickAndMortyCharacterDetailsViewModel = RickAndMortyCharacterDetailsViewModel(character: character)
-        let rickAndMortyCharacterDetailsViewController = RickAndMortyCharacterDetailsViewController(viewModel: rickAndMortyCharacterDetailsViewModel)
+        let rickAndMortyCharacterDetailsViewModel = CharacterDetailsViewModel(character: character)
+        let rickAndMortyCharacterDetailsViewController = CharacterDetailsViewController(viewModel: rickAndMortyCharacterDetailsViewModel)
         navigationController?.pushViewController(rickAndMortyCharacterDetailsViewController, animated: true)
     }
 }
 
-extension RickAndMortyCharactersListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension CharactersListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.filtrationCases.value.count
     }

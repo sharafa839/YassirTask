@@ -7,7 +7,7 @@
 
 import UIKit
 
-internal final class RickAndMortyCharacterDetailsViewController: UIViewController {
+internal final class CharacterDetailsViewController: UIViewController {
     
     //MARK: - IBOutlets
     @IBOutlet weak private var nameLabel: UILabel!
@@ -21,11 +21,11 @@ internal final class RickAndMortyCharacterDetailsViewController: UIViewControlle
     @IBOutlet weak private var characterImageView: UIImageView!
     
     //MARK: - Properties
-    private let viewModel: RickAndMortyCharacterDetailsViewModel
+    private let viewModel: CharacterDetailsViewModel
     
     //MARK: - Init
     
-    init(viewModel: RickAndMortyCharacterDetailsViewModel) {
+    init(viewModel: CharacterDetailsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }

@@ -1,5 +1,5 @@
 //
-//  GetRickAndMortyCharactersListUseCase.swift
+//  GetCharactersListUseCase.swift
 //  YassirTask
 //
 //  Created by Sharaf on 8/5/24.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol GetRickAndMortyCharactersListUseCaseProtocol {
+protocol GetCharactersListUseCaseProtocol {
     func getCharacters(page: Int, status: Status?, completion: @escaping(Result<RickAndMortyCharacters, Error>)-> Void)
 }
 
-class GetRickAndMortyCharactersListUseCase: GetRickAndMortyCharactersListUseCaseProtocol {
+internal final class GetCharactersListUseCase: GetCharactersListUseCaseProtocol {
     let repo: CharactersRepoProtocol
     
     init(repo: CharactersRepoProtocol = CharactersRepo()) {

@@ -9,11 +9,11 @@ import Foundation
 import Combine
 
 
-class RickAndMortyCharactersListViewModel {
+internal final class CharactersListViewModel {
     
     let onLoading: CurrentValueSubject<Bool, Never> = .init(false)
     let onError: PassthroughSubject<String, Never> = .init()
-    let useCase: GetRickAndMortyCharactersListUseCaseProtocol
+    let useCase: GetCharactersListUseCaseProtocol
     let characters: CurrentValueSubject<RickAndMortyCharacters?, Never> = .init(nil)
     let characterProperties: CurrentValueSubject<[CharactersProperties], Never> = .init([])
     let filtrationCases: CurrentValueSubject<[Filtration], Never> = .init(Filtration.allCases)
@@ -24,7 +24,7 @@ class RickAndMortyCharactersListViewModel {
     }
     private (set) var allCharactersProperties: [CharactersProperties] = []
     
-    init(useCase: GetRickAndMortyCharactersListUseCaseProtocol = GetRickAndMortyCharactersListUseCase()) {
+    init(useCase: GetCharactersListUseCaseProtocol = GetCharactersListUseCase()) {
         self.useCase = useCase
     }
     
