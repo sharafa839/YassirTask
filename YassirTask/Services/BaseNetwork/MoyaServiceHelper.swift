@@ -75,7 +75,6 @@ class MoyaServiceHelper<T: TargetType> {
             case .failure(let error):
                 print("🤯 Network Call Failure For \(T.self) \nError: \(error)")
                 completion(.failure(error))
-                //    self.handleFailure(target, response: error.response, completion: completion)
             }
         }
     }
